@@ -1,15 +1,16 @@
 # base_template.rb
 run "echo TODO > README"
 
-gem "formtastic"
-gem 'will_paginate'
-gem 'nifty-generators'
+gem "formtastic", :lib => false
+gem 'will_paginate', :lib => false
+gem 'nifty-generators', :lib => false
 rake "gems:install"
 
 if yes?("Do you want to use RSpec?")
-  gem "factory_girl"
-  gem "rspec"
-  gem "rspec-rails"
+  gem "factory_girl", :lib => false, :version => ">= 1.2.3"
+  gem "rspec", :lib => false, :version => ">= 1.3.0"
+  gem "rspec-rails", :lib => false, :version => ">= 1.3.2"
+  rake "gems:install"
   generate :rspec
 end
 
