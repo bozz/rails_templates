@@ -12,6 +12,9 @@ if yes?("Do you want to use RSpec?")
   gem "rspec-rails", :lib => false, :version => ">= 1.3.2"
   rake "gems:install"
   generate :rspec
+  
+  run "rm -rf spec/fixtures"
+  run "mkdir spec/factories"
 end
 
 generate :nifty_layout

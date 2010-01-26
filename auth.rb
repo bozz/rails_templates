@@ -1,9 +1,16 @@
 # auth_template.rb
 load_template "http://github.com/bozz/rails_templates/raw/master/base.rb"
 
-name = ask("What do you want a user to be called?")
-generate :nifty_authentication, name
+gem "authlogic", :lib => false
+rake "gems:install"
+
+# copy lucid_auth generator and run
+run "mkdir lib/generators"
+run "cp -rf ../rails_generators/lucid_auth lib/generators/"
+generate :lucid_auth
+
 rake "db:migrate"
+rake "db:test:clone"
 
 git :add => ".", :commit => "-m 'adding authentication'"
 
