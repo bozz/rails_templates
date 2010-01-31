@@ -4,7 +4,6 @@ run "echo TODO > README"
 gem "formtastic", :lib => false
 gem 'will_paginate', :lib => false
 gem 'nifty-generators', :lib => false
-rake "gems:install"
 
 #if yes?("Do you want to use RSpec?")
   gem "factory_girl", :lib => false, :version => ">= 1.2.3"
