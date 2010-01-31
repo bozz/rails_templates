@@ -1,0 +1,9 @@
+TODO: 
+======
+
+- instead of copying local generators, need to get them from git (see auth.rb::9)
+
+- if rspec is used, then factory_girl will also be used. In this case factory_girl must still be required and the factory definitions initialized in spec/spec_helper.rb:
+
+		require 'factory_girl'
+		Factory.find_definitions
