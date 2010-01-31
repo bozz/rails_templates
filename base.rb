@@ -6,7 +6,7 @@ gem 'will_paginate', :lib => false
 gem 'nifty-generators', :lib => false
 rake "gems:install"
 
-if yes?("Do you want to use RSpec?")
+#if yes?("Do you want to use RSpec?")
   gem "factory_girl", :lib => false, :version => ">= 1.2.3"
   gem "rspec", :lib => false, :version => ">= 1.3.0"
   gem "rspec-rails", :lib => false, :version => ">= 1.3.2"
@@ -14,11 +14,11 @@ if yes?("Do you want to use RSpec?")
   generate :rspec
   
   # add includes for factory girl
-  gsub_file 'spec/spec_helper.rb', /(require \'spec\/rails\')/, "\\1\n\n# added by bozz/rails_template/base.rb\ninclude 'factory_girl'\nFactory.find_definitions"
+  gsub_file 'spec/spec_helper.rb', /(require \'spec\/rails\')/, "\\1\n\n# added by bozz/rails_template/base.rb\nrequire 'factory_girl'\nFactory.find_definitions"
   
   run "rm -rf spec/fixtures"
   run "mkdir spec/factories"
-end
+#end
 
 generate :nifty_layout
 
